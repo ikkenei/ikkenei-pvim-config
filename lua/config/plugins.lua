@@ -39,6 +39,8 @@ vim.pack.add({
 
 	{ src = gh("nvim-treesitter/nvim-treesitter") },
 
+	{ src = gh("stevearc/aerial.nvim") },
+
 	{ src = gh("nvim-mini/mini.nvim") },
 
 	{ src = gh("inkarkat/vim-ingo-library") },
@@ -91,10 +93,10 @@ require("which-key").setup({
 	delay = 0,
 	icons = { mappings = vim.g.have_nerd_font },
 	spec = {
-		{ "<leader>s", group = "[S]earch", mode = { "n", "v" } },
+		{ "<leader>s", group = "[S]earch",    mode = { "n", "v" } },
 		{ "<leader>t", group = "[T]oggle" },
-		{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
-		{ "gr", group = "LSP Actions", mode = { "n" } },
+		{ "<leader>h", group = "Git [H]unk",  mode = { "n", "v" } },
+		{ "gr",        group = "LSP Actions", mode = { "n" } },
 	},
 })
 
@@ -248,6 +250,16 @@ local parsers = {
 }
 require("nvim-treesitter").install(parsers)
 
+require("aerial").setup({
+	-- optionally use on_attach to set keymaps when aerial has attached to a buffer
+	on_attach = function(bufnr)
+		-- Jump forwards/backwards with '{' and '}'
+		map("n", "[s", "<cmd>AerialPrev<CR>", { buffer = bufnr, desc = "Next symbol" })
+		map("n", "]s", "<cmd>AerialNext<CR>", { buffer = bufnr, desc = "Prev symbol" })
+	end,
+})
+map("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "Toggle [A]erial outline" } )
+
 map("n", "<localleader>m", "<Plug>MarkSet", { desc = "Mark word (whole word)" })
 map("n", "<localleader>gm", "<Plug>MarkPartialWord", { desc = "Mark word (partial)" })
 map("x", "<localleader>m", "<Plug>MarkSet", { desc = "Mark selection" })
@@ -269,8 +281,8 @@ require("image").setup({
 			download_remote_images = true,
 			only_render_image_at_cursor = false,
 			only_render_image_at_cursor_mode = "popup", -- or "inline"
-			floating_windows = false, -- if true, images will be rendered in floating markdown windows
-			filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+			floating_windows = false,                -- if true, images will be rendered in floating markdown windows
+			filetypes = { "markdown", "vimwiki" },   -- markdown extensions (ie. quarto) can go here
 		},
 	},
 	render = {
