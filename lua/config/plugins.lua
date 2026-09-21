@@ -3,53 +3,53 @@ local function gh(repo)
 end
 
 vim.pack.add({
-	{ src = gh("nvim-lua/plenary.nvim") },
+	gh("nvim-lua/plenary.nvim"),
 
 	{
 		src = gh("catppuccin/nvim"),
 		name = "catppuccin",
 	},
 
-	{ src = gh("rcarriga/nvim-notify") },
+	gh("rcarriga/nvim-notify"),
 
-	{ src = gh("nvim-tree/nvim-tree.lua") },
-	{ src = gh("nvim-tree/nvim-web-devicons") },
+	gh("nvim-tree/nvim-tree.lua"),
+	gh("nvim-tree/nvim-web-devicons"),
 
-	{ src = gh("nvim-telescope/telescope.nvim") },
-	{ src = gh("nvim-telescope/telescope-fzf-native.nvim") },
-	{ src = gh("nvim-telescope/telescope-ui-select.nvim") },
-	{ src = gh("nvim-telescope/telescope-symbols.nvim") },
+	gh("nvim-telescope/telescope.nvim"),
+	gh("nvim-telescope/telescope-fzf-native.nvim"),
+	gh("nvim-telescope/telescope-ui-select.nvim"),
+	gh("nvim-telescope/telescope-symbols.nvim"),
 
-	{ src = gh("mason-org/mason.nvim") },
-	{ src = gh("mason-org/mason-lspconfig.nvim") },
-	{ src = gh("j-hui/fidget.nvim") },
-	{ src = gh("neovim/nvim-lspconfig") },
+	gh("mason-org/mason.nvim"),
+	gh("mason-org/mason-lspconfig.nvim"),
+	gh("j-hui/fidget.nvim"),
+	gh("neovim/nvim-lspconfig"),
 
-	{ src = gh("saghen/blink.lib") },
-	{ src = gh("saghen/blink.cmp") },
-	{ src = gh("L3MON4D3/LuaSnip") },
+	gh("saghen/blink.lib"),
+	gh("saghen/blink.cmp"),
+	gh("L3MON4D3/LuaSnip"),
 
-	{ src = gh("stevearc/conform.nvim") },
+	gh("stevearc/conform.nvim"),
 
-	{ src = gh("lewis6991/gitsigns.nvim") },
-	{ src = gh("folke/which-key.nvim") },
-	{ src = gh("folke/todo-comments.nvim") },
-	{ src = gh("MeanderingProgrammer/render-markdown.nvim") },
-	{ src = gh("NMAC427/guess-indent.nvim") },
+	gh("lewis6991/gitsigns.nvim"),
+	gh("folke/which-key.nvim"),
+	gh("folke/todo-comments.nvim"),
+	gh("MeanderingProgrammer/render-markdown.nvim"),
+	gh("NMAC427/guess-indent.nvim"),
 
-	{ src = gh("nvim-treesitter/nvim-treesitter") },
+	gh("nvim-treesitter/nvim-treesitter"),
 
-	{ src = gh("stevearc/aerial.nvim") },
+	gh("stevearc/aerial.nvim"),
 
-	{ src = gh("nvim-mini/mini.nvim") },
+	gh("nvim-mini/mini.nvim"),
 
-	{ src = gh("inkarkat/vim-ingo-library") },
-	{ src = gh("inkarkat/vim-mark") },
+	gh("inkarkat/vim-ingo-library"),
+	gh("inkarkat/vim-mark"),
 
-	{ src = gh("3rd/image.nvim") },
-	{ src = gh("benlubas/molten-nvim") },
+	gh("3rd/image.nvim"),
+	gh("benlubas/molten-nvim"),
 
-	{ src = gh("obsidian-nvim/obsidian.nvim") },
+	gh("obsidian-nvim/obsidian.nvim"),
 })
 
 local map = vim.keymap.set
@@ -258,7 +258,7 @@ require("aerial").setup({
 		map("n", "]s", "<cmd>AerialNext<CR>", { buffer = bufnr, desc = "Prev symbol" })
 	end,
 })
-map("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "Toggle [A]erial outline" } )
+map("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "Toggle [A]erial outline" })
 
 map("n", "<localleader>m", "<Plug>MarkSet", { desc = "Mark word (whole word)" })
 map("n", "<localleader>gm", "<Plug>MarkPartialWord", { desc = "Mark word (partial)" })
